@@ -1,0 +1,1 @@
+GET     /advertiser/all            com.trivago.controller.ApiController.getAllResources
