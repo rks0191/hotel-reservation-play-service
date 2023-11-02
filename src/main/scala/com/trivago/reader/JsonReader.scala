@@ -1,5 +1,6 @@
 package com.trivago.reader
 
+import com.trivago.exception.FileParsingExeception
 import com.trivago.logger.Logger
 import com.trivago.model.{Accomodation, Advertiser, CurrencyType, Price}
 import play.api.libs.json.{JsArray, JsObject, Json}
@@ -27,9 +28,9 @@ class JsonReader(override val filePath:String) extends Reader with Logger{
 
         accomodations match {
           case Some(seq) => Advertiser(advertiserId, name, seq)
-          case _ => throw new RuntimeException("")
+          case _ => throw new FileParsingExeception
         }}
-        case _ => throw new RuntimeException("")
+        case _ => throw new FileParsingExeception
       }
   }
 }
